@@ -159,7 +159,7 @@
 - (NSDate *)dateHoursAfter:(NSUInteger)hours;
 
 - (NSInteger)hoursSinceDate:(NSDate *)date;
-- (NSInteger)minutesSinceDate:(NSDate *)date;
+- (NSInteger)minutesMinusHoursSinceDate:(NSDate *)date;
 
 
 

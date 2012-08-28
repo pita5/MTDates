@@ -648,11 +648,14 @@ static NSTimeZone *_timeZone = nil;
     return hours;
 }
 
-- (NSInteger)minutesSinceDate:(NSDate *)date;
+- (NSInteger)minutesMinusHoursSinceDate:(NSDate *)date;
 {
-    NSDateComponents *comps = [[NSDate calendar] components:NSHourCalendarUnit fromDate:date toDate:self options:0];
-    NSInteger minutes = [comps minute];
-    return minutes;
+    NSDateComponents *comps = [[NSDate calendar] components:NSMinuteCalendarUnit
+                                                   fromDate:date
+                                                     toDate:self
+                                                    options:0];
+    NSInteger minutes = [comps minute] - ([self hoursSinceDate:date] *60);
+    return MAX(0, minutes);
 }
 
 
